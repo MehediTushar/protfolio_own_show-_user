@@ -7,15 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mehedi Hasan</title>
     <link href="https://fonts.googleapis.com/css?family=Mukta:300,400,500,600,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('vendors/@fortawesome/fontawesome-free/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('vendors/@fortawesome/fontawesome-free/css/all.min.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="{{asset('css/user_style.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/user_style.css')}}">
 </head>
 
 <body>
     <header>
-        <button class="btn btn-white btn-share ml-auto mr-3 ml-md-0 mr-md-auto"><img src="assets/images/share.svg" alt="share" class="btn-img">
+        <button class="btn btn-white btn-share ml-auto mr-3 ml-md-0 mr-md-auto"><img src="secure_assets/images/share.svg" alt="share" class="btn-img">
             SHARE</button>
         <nav class="collapsible-nav" id="collapsible-nav">
             <a href="{{url('/')}}" class="nav-link <?php if($pages=='home'){echo 'active';}?> ">HOME</a>
@@ -110,10 +110,10 @@
         </aside>
         @yield('content')
     </div>
-    <script src="{{asset('vendors/jquery/dist/jquery.min.js')}}"></script>
-    <script src="{{asset('vendors/@popperjs/core/dist/umd/popper-base.min.js')}}"></script>
-    <script src="{{asset('vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('js/user.js')}}"></script>
+    <script src="{{secure_asset('vendors/jquery/dist/jquery.min.js')}}"></script>
+    <script src="{{secure_asset('vendors/@popperjs/core/dist/umd/popper-base.min.js')}}"></script>
+    <script src="{{secure_asset('vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <script src="{{secure_asset('js/user.js')}}"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

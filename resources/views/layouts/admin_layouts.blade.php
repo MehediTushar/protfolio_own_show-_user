@@ -7,15 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Admin</title>
   <!-- base:css -->
-  <link rel="stylesheet" href="{{asset('admin/vendors/typicons/typicons.css')}}">
-  <link rel="stylesheet" href="{{asset('admin/vendors/css/vendor.bundle.base.css')}}">
+  <link rel="stylesheet" href="{{secure_asset('admin_assets/vendors/typicons/typicons.css')}}">
+  <link rel="stylesheet" href="{{secure_asset('admin_assets/vendors/css/vendor.bundle.base.css')}}">
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="{{asset('admin/css/vertical-layout-light/style.css')}}">
+  <link rel="stylesheet" href="{{secure_asset('admin_assets/css/vertical-layout-light/style.css')}}">
   <!-- endinject -->
-  <link rel="shortcut icon" href="{{asset('admin/images/t1.svg')}}" />
+  <link rel="shortcut icon" href="{{secure_asset('admin_assets/images/t1.svg')}}" />
 </head>
 <body>
   <div class="container-scroller">
@@ -23,8 +23,8 @@
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="navbar-brand-wrapper d-flex justify-content-center">
         <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
-          <a class="navbar-brand brand-logo" href="{{route('admin.dashboard')}}"><img src="{{asset('admin/images/t2.svg')}}" alt="logo"/></a>
-          <a class="navbar-brand brand-logo-mini" href="{{route('admin.dashboard')}}"><img src="{{asset('admin/images/t1.svg')}}" alt="logo"/></a>
+          <a class="navbar-brand brand-logo" href="{{route('admin.dashboard')}}"><img src="{{secure_asset('admin_assets/images/t2.svg')}}" alt="logo"/></a>
+          <a class="navbar-brand brand-logo-mini" href="{{route('admin.dashboard')}}"><img src="{{secure_asset('admin_assets/images/t1.svg')}}" alt="logo"/></a>
           <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="typcn typcn-th-menu"></span>
           </button>
@@ -34,7 +34,7 @@
         <ul class="navbar-nav mr-lg-2">
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="{{asset('admin/images/faces/face5.jpg')}}" alt="profile"/>
+              <img src="{{secure_asset('admin_assets/images/faces/face5.jpg')}}" alt="profile"/>
               <span class="nav-profile-name">{{ Auth::user()->name }}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
@@ -270,20 +270,20 @@
   <!-- container-scroller -->
 
   <!-- base:js -->
-  <script src="{{asset('admin/vendors/js/vendor.bundle.base.js')}}"></script>
+  <script src="{{secure_asset('admin_assets/vendors/js/vendor.bundle.base.js')}}"></script>
   <!-- endinject -->
   <!-- Plugin js for this page-->
-  <script src="{{asset('admin/vendors/chart.js/Chart.min.js')}}"></script>
+  <script src="{{secure_asset('admin_assets/vendors/chart.js/Chart.min.js')}}"></script>
   <!-- End plugin js for this page-->
   <!-- inject:js -->
-  <script src="{{asset('admin/js/off-canvas.js')}}"></script>
-  <script src="{{asset('admin/js/hoverable-collapse.js')}}"></script>
-  <script src="{{asset('admin/js/template.js')}}"></script>
-  <script src="{{asset('admin/js/settings.js')}}"></script>
-  <script src="{{asset('admin/js/todolist.js')}}"></script>
+  <script src="{{secure_asset('admin_assets/js/off-canvas.js')}}"></script>
+  <script src="{{secure_asset('admin_assets/js/hoverable-collapse.js')}}"></script>
+  <script src="{{secure_asset('admin_assets/js/template.js')}}"></script>
+  <script src="{{secure_asset('admin_assets/js/settings.js')}}"></script>
+  <script src="{{secure_asset('admin_assets/js/todolist.js')}}"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
-  <script src="{{asset('admin/js/dashboard.js')}}"></script>
+  <script src="{{secure_asset('admin_assets/js/dashboard.js')}}"></script>
 
 </body>
 
