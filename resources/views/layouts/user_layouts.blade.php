@@ -7,16 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mehedi Hasan</title>
     <link href="https://fonts.googleapis.com/css?family=Mukta:300,400,500,600,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{secure_asset('vendors/@fortawesome/fontawesome-free/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{secure_secure_asset('vendors/@fortawesome/fontawesome-free/css/all.min.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     @production
-    <link rel="stylesheet" href="{{ secure_asset('css/user_style.css') }}">
+    <link rel="stylesheet" href="{{ secure_secure_asset('css/user_style.css') }}">
     @endproduction
 </head>
 
 <body>
     <header>
-        <button class="btn btn-white btn-share ml-auto mr-3 ml-md-0 mr-md-auto"><img src="secure_assets/images/share.svg" alt="share" class="btn-img">
+        <button class="btn btn-white btn-share ml-auto mr-3 ml-md-0 mr-md-auto"><img src="secure_secure_assets/images/share.svg" alt="share" class="btn-img">
             SHARE</button>
         <nav class="collapsible-nav" id="collapsible-nav">
             <a href="{{url('/')}}" class="nav-link <?php if($pages=='home'){echo 'active';}?> ">HOME</a>
@@ -25,14 +25,14 @@
             <a href="{{route('user.contact')}}" class="nav-link <?php if($pages=='contact'){echo 'active';}?> ">CONTACT</a>
         </nav>
         <button class="btn btn-menu-toggle btn-white rounded-circle" data-toggle="collapsible-nav"
-            data-target="collapsible-nav"><img src="assets/images/hamburger.svg" alt="hamburger"></button>
+            data-target="collapsible-nav"><img src="secure_assets/images/hamburger.svg" alt="hamburger"></button>
     </header>
     <div class="content-wrapper">
         <aside>
             <div class="profile-img-wrapper">
                 @if(count($infos)>0)
                 @foreach ($infos as $info)
-                <img src="{{(@$info->image)?url():asset("assets/images/pro.jpg")}}" alt="profile">
+                <img src="{{(@$info->image)?url():secure_asset("secure_assets/images/pro.jpg")}}" alt="profile">
             </div>
             <h1 class="profile-name">{{(@$mains->name)?$mains->name:"Md. Mehedi Hasan"}}</h1>
             <div class="text-center">
@@ -111,10 +111,10 @@
         </aside>
         @yield('content')
     </div>
-    <script src="{{secure_asset('vendors/jquery/dist/jquery.min.js')}}"></script>
-    <script src="{{secure_asset('vendors/@popperjs/core/dist/umd/popper-base.min.js')}}"></script>
-    <script src="{{secure_asset('vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-    <script src="{{secure_asset('js/user.js')}}"></script>
+    <script src="{{secure_secure_asset('vendors/jquery/dist/jquery.min.js')}}"></script>
+    <script src="{{secure_secure_asset('vendors/@popperjs/core/dist/umd/popper-base.min.js')}}"></script>
+    <script src="{{secure_secure_asset('vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <script src="{{secure_secure_asset('js/user.js')}}"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

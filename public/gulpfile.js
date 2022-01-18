@@ -9,12 +9,12 @@ const browserSync = require('browser-sync');
 //SCSS
 
 function style() {
-    return gulp.src('./secure_assets/scss/**/*.scss')
+    return gulp.src('./secure_secure_assets/scss/**/*.scss')
     .pipe(sourceMaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(sourceMaps.write('./'))
-    .pipe(gulp.dest('./secure_assets/css'))
+    .pipe(gulp.dest('./secure_secure_assets/css'))
     .pipe(browserSync.stream());
 }
 
@@ -29,9 +29,9 @@ function watch() {
         ghostMode: false,
         notify: false
     });
-    gulp.watch('./secure_assets/scss/**/*.scss', style);
+    gulp.watch('./secure_secure_assets/scss/**/*.scss', style);
     gulp.watch('./*.html').on('change', browserSync.reload);
-    gulp.watch('./assets/js/*.js').on('change', browserSync.reload);
+    gulp.watch('./secure_assets/js/*.js').on('change', browserSync.reload);
 
 }
 

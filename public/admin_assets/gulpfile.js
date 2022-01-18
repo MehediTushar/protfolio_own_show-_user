@@ -65,8 +65,8 @@ gulp.task('injectPartial', function () {
 
 
 
-/* inject Js and CCS assets into HTML */
-gulp.task('injectCommonAssets', function () {
+/* inject Js and CCS secure_assets into HTML */
+gulp.task('injectCommonsecure_assets', function () {
   return gulp.src('./**/*.html')
     .pipe(inject(gulp.src([ 
         './vendors/typicons/typicons.css',
@@ -84,7 +84,7 @@ gulp.task('injectCommonAssets', function () {
     .pipe(gulp.dest('.'));
 });
 
-/* inject Js and CCS assets into HTML */
+/* inject Js and CCS secure_assets into HTML */
 gulp.task('injectLayoutStyles', function () {
     var verticalLightStream = gulp.src(['./**/vertical-default-light/**/*.html',
             './**/vertical-boxed/**/*.html',
@@ -136,7 +136,7 @@ gulp.task('replacePath', function(){
 });
 
 /*sequence for injecting partials and replacing paths*/
-gulp.task('inject', gulp.series('injectPartial' , 'injectCommonAssets' , 'injectLayoutStyles', 'replacePath'));
+gulp.task('inject', gulp.series('injectPartial' , 'injectCommonsecure_assets' , 'injectLayoutStyles', 'replacePath'));
 
 gulp.task('clean:vendors', function () {
     return del([
@@ -183,7 +183,7 @@ gulp.task('copyAddonsScripts', function() {
         .pipe(gulp.dest('./vendors/twbs-pagination'));
     var aScript9 = gulp.src(['node_modules/jquery.avgrund/jquery.avgrund.min.js'])
         .pipe(gulp.dest('./vendors/jquery.avgrund'));
-    var aScript10 = gulp.src(['node_modules/pwstabs/assets/jquery.pwstabs.min.js'])
+    var aScript10 = gulp.src(['node_modules/pwstabs/secure_assets/jquery.pwstabs.min.js'])
         .pipe(gulp.dest('./vendors/pwstabs'));
     var aScript11 = gulp.src(['./node_modules/summernote/dist/**/*'])
         .pipe(gulp.dest('./vendors/summernote/dist'));

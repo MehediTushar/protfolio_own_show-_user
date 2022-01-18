@@ -8,7 +8,7 @@
             @if(count($protfolios)>0)
             @foreach ($protfolios as $protfolio)
             <div class="card ">
-              <img class="card-img-top" src="{{(@$protfolio->big_img)?url():asset("assets/images/pro.jpg")}}" alt="Card image cap" class="rounded mx-auto d-block" >
+              <img class="card-img-top" src="{{(@$protfolio->big_img)?url():secure_asset("secure_assets/images/pro.jpg")}}" alt="Card image cap" class="rounded mx-auto d-block" >
               <div class="card-body">
                 <h6 class="card-title">{{$protfolio->title}}</h6>
                 <p class="card-text text-16px"><small>{{$protfolio->description}}</small></p>

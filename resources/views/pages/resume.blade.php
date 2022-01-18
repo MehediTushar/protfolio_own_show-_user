@@ -77,7 +77,7 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <p class="testimonial-content">{{$tests->title}}</p>
-                    <img src="{{(@$teste->big_img)?url():asset("assets/images/pro.jpg")}}" alt="profile" class="testimonial-img">
+                    <img src="{{(@$teste->big_img)?url():secure_asset("secure_assets/images/pro.jpg")}}" alt="profile" class="testimonial-img">
                     <p class="testimonial-name">{{$tests->name}}</p>
                 </div>
             </div>
