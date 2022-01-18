@@ -4,7 +4,7 @@
 <main>
     <section class="intro-section">
 
-        <h2 class="section-title">{{$mains->name}}</h2>
+        <h2 class="section-title">{{(@$mains->name)?$mains->name:"Md. Mehedi Hasan"}}</h2>
         <p><strong>{{$mains->description}}</strong></p>
 
     </section>
