@@ -31,11 +31,11 @@
             <div class="profile-img-wrapper">
                 @if(count($infos)>0)
                 @foreach ($infos as $info)
-                <img src="{{url($info->image)}}" alt="profile">
+                <img src="{{(@$info->image)?url():asset("assets/images/pro.jpg")}}" alt="profile">
             </div>
-            <h1 class="profile-name">{{$mains->name}}</h1>
+            <h1 class="profile-name">{{(@$mains->name)?$mains->name:"Md. Mehedi Hasan"}}</h1>
             <div class="text-center">
-                <span class="badge badge-white badge-pill profile-designation">{{$info->designation}}</span>
+                <span class="badge badge-white badge-pill profile-designation">{{(@$info->designation)?$info->designation:"Software Developer"}}</span>
             </div>
             <nav class="social-links">
                 <a href="#!" class="social-link"><i class="fab fa-facebook-f"></i></a>
@@ -45,12 +45,12 @@
                 <a href="#!" class="social-link"><i class="fab fa-github"></i></a>
             </nav>
             <div class="widget">
-                <h5 class="widget-title">{{$info->title}}</h5>
+                <h5 class="widget-title">{{(@$info->title)?$info->title:"Title"}}</h5>
                 <div class="widget-content">
-                    <p>BIRTHDAY : {{$info->dob}}</p>
-                    <p>WEBSITE : www.example.com</p>
-                    <p>PHONE : {{$info->phone}}</p>
-                    <p>MAIL : {{$info->email}}</p>
+                    <p>BIRTHDAY : {{(@$info->dob)?$info->dob:"dob"}}</p>
+                    <p>WEBSITE : https://mehedi-hasan-tushar.herokuapp.com/</p>
+                    <p>PHONE : {{(@$info->phone)?$info->phone:"01849498958"}}</p>
+                    <p>MAIL : {{(@$info->phone)?$info->email:"mehedituhsar@gmail.com"}}</p>
                     <p>GENDER : @if ($info->gender ==1)
                         <span class="label label-success">{{'Male'}}</span>
                         @elseif ($info->gender==2)
@@ -81,7 +81,7 @@
                         <span class="label label-info">{{'Not Defined'}}</span>
 
                     @endif</p>
-                    <p>Location : {{$info->address}}</p>
+                    <p>Location : {{(@$info->address)?$info->address:"Adress"}}</p>
                     <a class="btn btn-download-cv btn-primary rounded-pill" target="_blank" href="{{url($info->resume)}}" role="button">DOWNLOAD CV</a>
                 </div>
             </div>

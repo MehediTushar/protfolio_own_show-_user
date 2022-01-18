@@ -98,6 +98,6 @@
 
     </section>
 
-    <footer>Live Resume @ <a href="#" target="_blank" rel="noopener noreferrer">Own</a>. All Rights Reserved 2020</footer>
+    <footer>Live Resume @ <a href="https://mehedi-hasan-tushar.herokuapp.com/" target="_blank" rel="noopener noreferrer">Own</a>. All Rights Reserved 2020</footer>
 </main>
 @endsection
