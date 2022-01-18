@@ -5,7 +5,7 @@
     <section class="intro-section">
 
         <h2 class="section-title">{{(@$mains->name)?$mains->name:"Md. Mehedi Hasan"}}</h2>
-        <p><strong>{{$mains->description}}</strong></p>
+        <p><strong>{{(@$mains->description)?$mains->description:"This is My Description"}}</strong></p>
 
     </section>
     <section class="resume-section">
