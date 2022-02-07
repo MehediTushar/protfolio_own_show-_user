@@ -9,14 +9,14 @@ var injectPartials = require('gulp-inject-partials');
 var inject = require('gulp-inject');
 var sourcemaps = require('gulp-sourcemaps');
 var concat = require('gulp-concat');
-var merge = require('merge-stream'); 
+var merge = require('merge-stream');
 
 
 
-gulp.task('sass', function () {
+gulp.task('sass', function() {
     return gulp.src('./scss/**/style.scss')
         .pipe(sourcemaps.init())
-        .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
+        .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
         .pipe(sourcemaps.write('./maps'))
         .pipe(gulp.dest('./css'))
         .pipe(browserSync.stream());
@@ -57,35 +57,35 @@ gulp.task('serve:lite', function() {
 
 
 /* inject partials like sidebar and navbar */
-gulp.task('injectPartial', function () {
-  return gulp.src("./**/*.html", { base: "./" })
-    .pipe(injectPartials())
-    .pipe(gulp.dest("."));
+gulp.task('injectPartial', function() {
+    return gulp.src("./**/*.html", { base: "./" })
+        .pipe(injectPartials())
+        .pipe(gulp.dest("."));
 });
 
 
 
-/* inject Js and CCS secure_assets into HTML */
-gulp.task('injectCommonsecure_assets', function () {
-  return gulp.src('./**/*.html')
-    .pipe(inject(gulp.src([ 
-        './vendors/typicons/typicons.css',
-        './vendors/css/vendor.bundle.base.css', 
-        './vendors/js/vendor.bundle.base.js',
-    ], {read: false}), {name: 'base', relative: true}))
-    .pipe(inject(gulp.src([
-        './css/*.css', 
-        './js/off-canvas.js', 
-        './js/hoverable-collapse.js', 
-        './js/template.js',
-        './js/settings.js', 
-        './js/todolist.js'
-    ], {read: false}), {relative: true}))
-    .pipe(gulp.dest('.'));
+/* inject Js and CCS assets into HTML */
+gulp.task('injectCommonassets', function() {
+    return gulp.src('./**/*.html')
+        .pipe(inject(gulp.src([
+            './vendors/typicons/typicons.css',
+            './vendors/css/vendor.bundle.base.css',
+            './vendors/js/vendor.bundle.base.js',
+        ], { read: false }), { name: 'base', relative: true }))
+        .pipe(inject(gulp.src([
+            './css/*.css',
+            './js/off-canvas.js',
+            './js/hoverable-collapse.js',
+            './js/template.js',
+            './js/settings.js',
+            './js/todolist.js'
+        ], { read: false }), { relative: true }))
+        .pipe(gulp.dest('.'));
 });
 
-/* inject Js and CCS secure_assets into HTML */
-gulp.task('injectLayoutStyles', function () {
+/* inject Js and CCS assets into HTML */
+gulp.task('injectLayoutStyles', function() {
     var verticalLightStream = gulp.src(['./**/vertical-default-light/**/*.html',
             './**/vertical-boxed/**/*.html',
             './**/vertical-compact/**/*.html',
@@ -94,31 +94,32 @@ gulp.task('injectLayoutStyles', function () {
             './**/vertical-hidden-toggle/**/*.html',
             './**/vertical-icon-menu/**/*.html',
             './**/vertical-toggle-overlay/**/*.html',
-            './index.html'])
+            './index.html'
+        ])
         .pipe(inject(gulp.src([
-            './css/vertical-layout-light/style.css', 
-        ], {read: false}), {relative: true}))
+            './css/vertical-layout-light/style.css',
+        ], { read: false }), { relative: true }))
         .pipe(gulp.dest('.'));
     var horizontalLightStream = gulp.src('./**/horizontal-default-light/**/*.html')
         .pipe(inject(gulp.src([
-            './css/horizontal-layout-light/style.css', 
-        ], {read: false}), {relative: true}))
+            './css/horizontal-layout-light/style.css',
+        ], { read: false }), { relative: true }))
         .pipe(gulp.dest('.'));
     var horizontalDarkStream = gulp.src('./**/horizontal-default-dark/**/*.html')
         .pipe(inject(gulp.src([
             './css/horizontal-layout-dark/style.css',
-        ], {read: false}), {relative: true}))
+        ], { read: false }), { relative: true }))
         .pipe(gulp.dest('.'));
     var verticalDarkStream = gulp.src('./**/vertical-default-dark/**/*.html')
         .pipe(inject(gulp.src([
-            './css/vertical-layout-dark/style.css', 
-        ], {read: false}), {relative: true}))
+            './css/vertical-layout-dark/style.css',
+        ], { read: false }), { relative: true }))
         .pipe(gulp.dest('.'));
     return merge(verticalLightStream, horizontalLightStream, horizontalDarkStream, verticalDarkStream);
 });
 
 /*replace image path and linking after injection*/
-gulp.task('replacePath', function(){
+gulp.task('replacePath', function() {
     var replacePath1 = gulp.src(['./pages/*/*.html'], { base: "./" })
         .pipe(replace('="images/', '="../../images/'))
         .pipe(replace('href="pages/', 'href="../../pages/'))
@@ -136,31 +137,31 @@ gulp.task('replacePath', function(){
 });
 
 /*sequence for injecting partials and replacing paths*/
-gulp.task('inject', gulp.series('injectPartial' , 'injectCommonsecure_assets' , 'injectLayoutStyles', 'replacePath'));
+gulp.task('inject', gulp.series('injectPartial', 'injectCommonassets', 'injectLayoutStyles', 'replacePath'));
 
-gulp.task('clean:vendors', function () {
+gulp.task('clean:vendors', function() {
     return del([
-      'vendors/**/*'
+        'vendors/**/*'
     ]);
 });
 
 /*Building vendor scripts needed for basic template rendering*/
 gulp.task('buildBaseVendorScripts', function() {
     return gulp.src([
-        './node_modules/jquery/dist/jquery.min.js', 
-        './node_modules/popper.js/dist/umd/popper.min.js', 
-        './node_modules/bootstrap/dist/js/bootstrap.min.js', 
-        './node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js'
-    ])
-      .pipe(concat('vendor.bundle.base.js'))
-      .pipe(gulp.dest('./vendors/js'));
+            './node_modules/jquery/dist/jquery.min.js',
+            './node_modules/popper.js/dist/umd/popper.min.js',
+            './node_modules/bootstrap/dist/js/bootstrap.min.js',
+            './node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js'
+        ])
+        .pipe(concat('vendor.bundle.base.js'))
+        .pipe(gulp.dest('./vendors/js'));
 });
 
 /*Building vendor styles needed for basic template rendering*/
 gulp.task('buildBaseVendorStyles', function() {
     return gulp.src(['./node_modules/perfect-scrollbar/css/perfect-scrollbar.css'])
-      .pipe(concat('vendor.bundle.base.css'))
-      .pipe(gulp.dest('./vendors/css'));
+        .pipe(concat('vendor.bundle.base.css'))
+        .pipe(gulp.dest('./vendors/css'));
 });
 
 /*Scripts for addons*/
@@ -178,12 +179,12 @@ gulp.task('copyAddonsScripts', function() {
     var aScript6 = gulp.src(['node_modules/codemirror/mode/javascript/javascript.js'])
         .pipe(gulp.dest('./vendors/codemirror'));
     var aScript7 = gulp.src(['node_modules/codemirror/mode/shell/shell.js'])
-        .pipe(gulp.dest('./vendors/codemirror')); 
+        .pipe(gulp.dest('./vendors/codemirror'));
     var aScript8 = gulp.src(['node_modules/twbs-pagination/jquery.twbsPagination.min.js'])
         .pipe(gulp.dest('./vendors/twbs-pagination'));
     var aScript9 = gulp.src(['node_modules/jquery.avgrund/jquery.avgrund.min.js'])
         .pipe(gulp.dest('./vendors/jquery.avgrund'));
-    var aScript10 = gulp.src(['node_modules/pwstabs/secure_assets/jquery.pwstabs.min.js'])
+    var aScript10 = gulp.src(['node_modules/pwstabs/assets/jquery.pwstabs.min.js'])
         .pipe(gulp.dest('./vendors/pwstabs'));
     var aScript11 = gulp.src(['./node_modules/summernote/dist/**/*'])
         .pipe(gulp.dest('./vendors/summernote/dist'));
@@ -231,6 +232,6 @@ gulp.task('copyAddonsStyles', function() {
 });
 
 /*sequence for building vendor scripts and styles*/
-gulp.task('bundleVendors', gulp.series('clean:vendors', 'buildBaseVendorStyles','buildBaseVendorScripts', 'copyAddonsStyles', 'copyAddonsScripts'));
+gulp.task('bundleVendors', gulp.series('clean:vendors', 'buildBaseVendorStyles', 'buildBaseVendorScripts', 'copyAddonsStyles', 'copyAddonsScripts'));
 
 gulp.task('default', gulp.series('serve'));

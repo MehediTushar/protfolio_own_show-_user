@@ -7,11 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mehedi Hasan</title>
     <link href="https://fonts.googleapis.com/css?family=Mukta:300,400,500,600,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{secure_asset('vendors/@fortawesome/fontawesome-free/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('vendors/@fortawesome/fontawesome-free/css/all.min.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    @production
-    <link rel="stylesheet" href="{{secure_asset('css/user_style.css') }}">
-    @endproduction
+    <link rel="stylesheet" href="{{asset('css/user_style.css') }}">
 </head>
 
 <body>
@@ -32,11 +30,11 @@
             <div class="profile-img-wrapper">
                 @if(count($infos)>0)
                 @foreach ($infos as $info)
-                <img src="{{(@$info->image)?url():secure_asset("assets/images/pro.jpg")}}" alt="profile">
+                <img src="{{url($info->image)}}" alt="profile">
             </div>
-            <h1 class="profile-name">{{(@$mains->name)?$mains->name:"Md. Mehedi Hasan"}}</h1>
+            <h1 class="profile-name">{{$mains->name}}</h1>
             <div class="text-center">
-                <span class="badge badge-white badge-pill profile-designation">{{(@$info->designation)?$info->designation:"Software Developer"}}</span>
+                <span class="badge badge-white badge-pill profile-designation">{{$info->designation}}</span>
             </div>
             <nav class="social-links">
                 <a href="#!" class="social-link"><i class="fab fa-facebook-f"></i></a>
@@ -46,12 +44,12 @@
                 <a href="#!" class="social-link"><i class="fab fa-github"></i></a>
             </nav>
             <div class="widget">
-                <h5 class="widget-title">{{(@$info->title)?$info->title:"Title"}}</h5>
+                <h5 class="widget-title">{{$info->title}}</h5>
                 <div class="widget-content">
-                    <p>BIRTHDAY : {{(@$info->dob)?$info->dob:"dob"}}</p>
-                    <p>WEBSITE : https://mehedi-hasan-tushar.herokuapp.com/</p>
-                    <p>PHONE : {{(@$info->phone)?$info->phone:"01849498958"}}</p>
-                    <p>MAIL : {{(@$info->phone)?$info->email:"mehedituhsar@gmail.com"}}</p>
+                    <p>BIRTHDAY : {{$info->dob}}</p>
+                    <p>WEBSITE :www.example.com</p>
+                    <p>PHONE : {{$info->phone}}</p>
+                    <p>MAIL : {{$info->email}}</p>
                     <p>GENDER : @if ($info->gender ==1)
                         <span class="label label-success">{{'Male'}}</span>
                         @elseif ($info->gender==2)
@@ -82,7 +80,7 @@
                         <span class="label label-info">{{'Not Defined'}}</span>
 
                     @endif</p>
-                    <p>Location : {{(@$info->address)?$info->address:"Adress"}}</p>
+                    <p>Location : {{$info->address}}</p>
                     <a class="btn btn-download-cv btn-primary rounded-pill" target="_blank" href="{{url($info->resume)}}" role="button">DOWNLOAD CV</a>
                 </div>
             </div>
@@ -111,10 +109,10 @@
         </aside>
         @yield('content')
     </div>
-    <script src="{{secure_asset('vendors/jquery/dist/jquery.min.js')}}"></script>
-    <script src="{{secure_asset('vendors/@popperjs/core/dist/umd/popper-base.min.js')}}"></script>
-    <script src="{{secure_asset('vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-    <script src="{{secure_asset('js/user.js')}}"></script>
+    <script src="{{asset('vendors/jquery/dist/jquery.min.js')}}"></script>
+    <script src="{{asset('vendors/@popperjs/core/dist/umd/popper-base.min.js')}}"></script>
+    <script src="{{asset('vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/user.js')}}"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

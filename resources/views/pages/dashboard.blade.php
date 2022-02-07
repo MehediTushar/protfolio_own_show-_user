@@ -4,8 +4,8 @@
 <main>
     <section class="intro-section">
 
-        <h2 class="section-title">{{(@$mains->name)?$mains->name:"Md. Mehedi Hasan"}}</h2>
-        <p><strong>{{(@$mains->description)?$mains->description:"This is My Description"}}</strong></p>
+        <h2 class="section-title">{{$mains->name}}</h2>
+        <p><strong>{{$mains->description}}</strong></p>
 
     </section>
     <section class="resume-section">
@@ -98,6 +98,6 @@
 
     </section>
 
-    <footer>Live Resume @ <a href="https://mehedi-hasan-tushar.herokuapp.com/" target="_blank" rel="noopener noreferrer">Own</a>. All Rights Reserved 2020</footer>
+    <footer>Live Resume @ <a href="#" target="_blank" rel="noopener noreferrer">Own</a>. All Rights Reserved 2020</footer>
 </main>
 @endsection

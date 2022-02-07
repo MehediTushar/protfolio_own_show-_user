@@ -13,7 +13,7 @@ class ContactController extends Controller
     public function store()
     {
         $contact_from=request()->all();
-        Mail::to('mehedituhsar@gmail.com')->send(new ContactFormMail($contact_from));
+        Mail::to('#')->send(new ContactFormMail($contact_from));
         return redirect()->route('user.contact')->with('success','Your message has been submitted successfully');
     }
 

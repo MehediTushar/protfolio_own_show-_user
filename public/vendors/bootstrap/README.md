@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://getbootstrap.com/">
-    <img src="https://getbootstrap.com/docs/4.4/secure_assets/brand/bootstrap-solid.svg" alt="Bootstrap logo" width="72" height="72">
+    <img src="https://getbootstrap.com/docs/4.4/assets/brand/bootstrap-solid.svg" alt="Bootstrap logo" width="72" height="72">
   </a>
 </p>
 
@@ -72,7 +72,7 @@ Read the [Getting started page](https://getbootstrap.com/docs/4.4/getting-starte
 
 ## What's included
 
-Within the download you'll find the following directories and files, logically grouping common secure_assets and providing both compiled and minified variations. You'll see something like this:
+Within the download you'll find the following directories and files, logically grouping common assets and providing both compiled and minified variations. You'll see something like this:
 
 ```text
 bootstrap/
@@ -113,7 +113,7 @@ Have a bug or a feature request? Please first read the [issue guidelines](https:
 
 Bootstrap's documentation, included in this repo in the root directory, is built with [Jekyll](https://jekyllrb.com/) and publicly hosted on GitHub Pages at <https://getbootstrap.com/>. The docs may also be run locally.
 
-Documentation search is powered by [Algolia's DocSearch](https://community.algolia.com/docsearch/). Working on our search? Be sure to set `debug: true` in `site/docs/4.4/secure_assets/js/src/search.js` file.
+Documentation search is powered by [Algolia's DocSearch](https://community.algolia.com/docsearch/). Working on our search? Be sure to set `debug: true` in `site/docs/4.4/assets/js/src/search.js` file.
 
 ### Running documentation locally
 
